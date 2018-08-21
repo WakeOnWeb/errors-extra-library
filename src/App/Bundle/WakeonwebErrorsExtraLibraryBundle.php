@@ -4,6 +4,6 @@ namespace WakeOnWeb\ErrorsExtraLibrary\App\Bundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class WakeOnWebErrorsExtraLibraryBundle extends Bundle
+class WakeonwebErrorsExtraLibraryBundle extends Bundle
 {
 }

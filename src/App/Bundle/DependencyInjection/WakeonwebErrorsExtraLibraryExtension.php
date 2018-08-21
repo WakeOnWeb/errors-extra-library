@@ -1,13 +1,13 @@
 <?php
 
-namespace WakeOnWeb\ErrorsLibrary\App\Bundle\DependencyInjection;
+namespace WakeOnWeb\ErrorsExtraLibrary\App\Bundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
-class WakeonwebErrorsLibraryExtension extends Extension
+class WakeonwebErrorsExtraLibraryExtension extends Extension
 {
     /**
      * {@inheritdoc}
