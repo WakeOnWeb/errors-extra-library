@@ -14,7 +14,7 @@ composer.json
     "repositories": [
         {
             "type": "vcs",
-            "url":  "git@bitbucket.org:wakeonweb/errors-extra-library.git"
+            "url":  "https://bitbucket.org/wakeonweb/errors-extra-library.git"
         }
     ]
 ```
@@ -36,8 +36,8 @@ wakeonweb_errors_extra_library:
     exception:
         http_status_codes:
             Pagerfanta\Exception\OutOfRangeCurrentPageException: 400
-        messages:
-            Pagerfanta\Exception\OutOfRangeCurrentPageException: true
+        show_messages:
+            - Pagerfanta\Exception\OutOfRangeCurrentPageException
         log_levels:
             Pagerfanta\Exception\OutOfRangeCurrentPageException: notice
             Pagerfanta\Exception\NotValidCurrentPageException: error

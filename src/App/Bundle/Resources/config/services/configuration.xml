@@ -8,7 +8,7 @@
         <service id="wakeonweb.errors_extra_library.exception_configuration" class="WakeOnWeb\ErrorsExtraLibrary\Domain\Exception\Configuration">
             <argument>%wakeonweb_errors_extra_library.force_format%</argument>
             <argument>%wakeonweb_errors_extra_library.exception_http_status_codes%</argument>
-            <argument>%wakeonweb_errors_extra_library.exception_messages%</argument>
+            <argument>%wakeonweb_errors_extra_library.exception_show_messages%</argument>
             <argument>%wakeonweb_errors_extra_library.exception_log_levels%</argument>
         </service>
     </services>

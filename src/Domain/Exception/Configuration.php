@@ -57,9 +57,9 @@ class Configuration
      */
     public function showsExceptionMessage(\Exception $exception)
     {
-        foreach ($this->messages as $class => $bool) {
+        foreach ($this->messages as $class) {
             if ($exception instanceof $class) {
-                return $bool;
+                return true;
             }
         }
 
