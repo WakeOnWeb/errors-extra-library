@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="wakeonweb.errors_extra_library.exception_configuration" class="WakeOnWeb\ErrorsExtraLibrary\Domain\Exception\Configuration">
+            <argument>%wakeonweb_errors_extra_library.force_format%</argument>
+            <argument>%wakeonweb_errors_extra_library.exception_http_status_codes%</argument>
+            <argument>%wakeonweb_errors_extra_library.exception_messages%</argument>
+            <argument>%wakeonweb_errors_extra_library.exception_log_levels%</argument>
+        </service>
+    </services>
+</container>

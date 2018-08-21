@@ -1,0 +1,22 @@
+{
+    "name": "wakeonweb/errors-extra-library",
+    "description": "Wakeonweb errors extra library",
+    "type": "library",
+    "autoload": {
+        "psr-4": { "WakeOnWeb\\ErrorsExtraLibrary\\": "src/"}
+    },
+    "require": {
+        "php": ">=5.5",
+        "symfony/http-kernel": ">=2.3",
+        "psr/log": "~1.0"
+    },
+    "suggest": {
+        "symfony/symfony": "Because we have a bundle for that. :)"
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+<services>
+    <service id="wakeonweb.errors_extra_library.exception_listener" class="WakeOnWeb\ErrorsExtraLibrary\Infra\ExceptionListener">
+        <argument type="service" id="wakeonweb.errors_extra_library.exception_configuration" />
+        <argument type="service" id="logger" on-invalid="null" />
+        <argument>%kernel.debug%</argument>
+        <!-- symfony firewall 0: It passes -->
+        <tag name="kernel.event_listener" event="kernel.exception" priority="-64" />
+        <!-- fos rest is -100: Should not pass  -->
+        <!-- symfony kernel -128: Should not pass -->
+    </service>
+</services>
+</container>
