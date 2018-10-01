@@ -4,22 +4,25 @@ namespace WakeOnWeb\ErrorsExtraLibrary\Domain\Exception;
 
 class Configuration
 {
+    /** @var null|string */
     private $forceFormat;
+
+    /** @var array */
     private $httpStatusCodes;
+
+    /** @var array */
     private $messages;
 
-    /**
-     * @var string[]    key : FQCN, value : PSR-3 log level
-     */
+    /** @var string[]    key : FQCN, value : PSR-3 log level */
     private $logLevels;
 
     /**
      * Configuration constructor.
      *
      * @param string|null $forceFormat
-     * @param array $httpStatusCodes
-     * @param array $messages
-     * @param array $logLevels
+     * @param array       $httpStatusCodes
+     * @param array       $messages
+     * @param array       $logLevels
      */
     public function __construct($forceFormat = null, array $httpStatusCodes = [], array $messages = [], array $logLevels = [])
     {
@@ -29,6 +32,9 @@ class Configuration
         $this->logLevels         = $logLevels;
     }
 
+    /**
+     * @return null|string
+     */
     public function getForcedFormat()
     {
         return $this->forceFormat;
@@ -71,7 +77,7 @@ class Configuration
      *
      * @param \Exception $exception
      *
-     * @return string|null   PSR-3 log level name
+     * @return string|null PSR-3 log level name
      */
     public function getCustomLogLevel(\Exception $exception)
     {

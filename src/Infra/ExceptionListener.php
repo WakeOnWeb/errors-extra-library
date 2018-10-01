@@ -33,6 +33,9 @@ class ExceptionListener
         $this->debug = $debug;
     }
 
+    /**
+     * @param GetResponseForExceptionEvent $event
+     */
     public function onKernelException(GetResponseForExceptionEvent $event)
     {
         $request = $event->getRequest();
@@ -55,6 +58,12 @@ class ExceptionListener
         $event->setResponse(new JsonResponse($exceptionViewData, $code));
     }
 
+    /**
+     * @param \Exception $e
+     * @param int        $code
+     *
+     * @return string
+     */
     private function guessExceptionMessage(\Exception $e, $code)
     {
         if ($this->debug || $this->configuration->showsExceptionMessage($e)) {
