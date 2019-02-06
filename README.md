@@ -10,13 +10,7 @@ composer.json
 ```json
     "require": {
         "wakeonweb/errors-extra-library": "~1.0"
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url":  "https://bitbucket.org/wakeonweb/errors-extra-library.git"
-        }
-    ]
+    }
 ```
 
 
