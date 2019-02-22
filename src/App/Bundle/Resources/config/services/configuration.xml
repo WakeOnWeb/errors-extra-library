@@ -11,5 +11,9 @@
             <argument>%wakeonweb_errors_extra_library.exception_show_messages%</argument>
             <argument>%wakeonweb_errors_extra_library.exception_log_levels%</argument>
         </service>
+        <service id="serializer.normalizer.form_error" class="WakeOnWeb\ErrorsExtraLibrary\Infra\Serializer\Normalizer\FormErrorNormalizer">
+            <!-- Run before serializer.normalizer.object -->
+            <tag name="serializer.normalizer" priority="-915" />
+        </service>
     </services>
 </container>
