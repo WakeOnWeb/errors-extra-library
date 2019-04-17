@@ -57,3 +57,60 @@ The bundle adds an exception listener to format the response when the requested 
     "message": "Forbidden",
 }
 ```
+
+
+#### Form Errors normalization
+
+This bundle also standardize Symfony Form Errors.
+
+
+With something like this:
+
+```
+    if (!$form->isValid()) {
+        return new JsonResponse($this->normalizer->normalize($form, 'json'), 400);
+    }
+```
+
+You will have:
+
+```
+{  
+   "code":"400",
+   "message":"Validation Failed",
+   "errors":{  
+      "children":{  
+         "firstName":{  
+            "errors":[  
+               [  
+                  "This value is too short. It should have {{ limit }} character or more.|This value is too short. It should have {{ limit }} characters or more.",
+                  {  
+                     "{{ value }}":"\"LL\"",
+                     "{{ limit }}":3
+                  }
+               ]
+            ]
+         },
+         "lastName":{  
+            "errors":[  
+               [  
+                  "This value should not be blank.",
+                  {  
+                     "{{ value }}":"null"
+                  }
+               ]
+            ]
+         }
+      },
+      "errors":[  
+         [  
+            "This is a global form error with {{ param }}",
+            {  
+               "{{ param }}":"TEST"
+            }
+         ]
+      ]
+   }
+}
+
+```
