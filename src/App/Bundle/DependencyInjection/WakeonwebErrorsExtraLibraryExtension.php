@@ -24,5 +24,6 @@ class WakeonwebErrorsExtraLibraryExtension extends Extension
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config/services'));
         $loader->load('configuration.xml');
         $loader->load('listener.xml');
+        $loader->load('response_formatters.xml');
     }
 }

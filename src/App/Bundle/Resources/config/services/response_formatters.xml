@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+<services>
+    <service id="wakeonweb.errors_extra_library.response_formatters" class="WakeOnWeb\ErrorsExtraLibrary\Domain\Formatter\ResponseFormatterInterface" public="false">
+    </service>
+
+    <service id="wakeonweb.errors_extra_library.response_formatters.default" class="WakeOnWeb\ErrorsExtraLibrary\Infra\Formatter\ResponseFormatter">
+    </service>
+
+    <service id="wakeonweb.errors_extra_library.response_formatters" alias="wakeonweb.errors_extra_library.response_formatters.default">
+    </service>
+</services>
+</container>
