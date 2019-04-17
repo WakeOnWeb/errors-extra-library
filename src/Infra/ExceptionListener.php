@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 use WakeOnWeb\ErrorsExtraLibrary\Domain\Exception\Configuration;
+use WakeOnWeb\ErrorsExtraLibrary\Domain\Formatter\ResponseFormatterInterface;
 
 class ExceptionListener
 {
@@ -18,6 +19,9 @@ class ExceptionListener
     /** @var LoggerInterface */
     private $logger;
 
+    /** @var ResponseFormatterInterface */
+    private $responseFormatter;
+
     /** @var bool */
     private $debug;
 
@@ -26,10 +30,11 @@ class ExceptionListener
      * @param LoggerInterface     $logger        logger
      * @param bool                $debug         debug
      */
-    public function __construct(Configuration $configuration, LoggerInterface $logger = null, $debug = false)
+    public function __construct(Configuration $configuration, LoggerInterface $logger = null, ResponseFormatterInterface $responseFormatter, $debug = false)
     {
         $this->configuration = $configuration;
         $this->logger = $logger;
+        $this->responseFormatter = $responseFormatter;
         $this->debug = $debug;
     }
 
@@ -50,10 +55,11 @@ class ExceptionListener
         // Log as on Symfony\Component\HttpKernel\EventListener\ExceptionListener
         $this->logException($exception, sprintf('Uncaught PHP Exception %s: "%s" at %s line %s', get_class($exception), $exception->getMessage(), $exception->getFile(), $exception->getLine()));
 
-        $exceptionViewData = [
-            'code' => $code,
-            'message' => $this->guessExceptionMessage($exception, $code),
-        ];
+        $exceptionViewData = $this->responseFormatter->format(
+            $exception,
+            $code,
+            $this->guessExceptionMessage($exception, $code)
+        );
 
         $event->setResponse(new JsonResponse($exceptionViewData, $code));
     }

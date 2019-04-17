@@ -8,6 +8,7 @@ xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/sc
     <service id="wakeonweb.errors_extra_library.exception_listener" class="WakeOnWeb\ErrorsExtraLibrary\Infra\ExceptionListener">
         <argument type="service" id="wakeonweb.errors_extra_library.exception_configuration" />
         <argument type="service" id="logger" on-invalid="null" />
+        <argument type="service" id="wakeonweb.errors_extra_library.response_formatters" />
         <argument>%kernel.debug%</argument>
         <!-- symfony firewall 0: It passes -->
         <tag name="kernel.event_listener" event="kernel.exception" priority="-64" />
